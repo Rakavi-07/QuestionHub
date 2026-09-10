@@ -43,6 +43,7 @@ export function logout({ redirect = false } = {}) {
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(USER_KEY);
   if (redirect && typeof window !== 'undefined') {
-    window.location.href = isAdmin ? '/admin/login' : '/student/login';
+    
+    window.location.href = `/#${isAdmin ? '/admin/login' : '/student/login'}`;
   }
 }
