@@ -1,4 +1,4 @@
-@'
+$json = @'
 {
   "rewrites": [
     {
@@ -7,4 +7,10 @@
     }
   ]
 }
-'@ | Set-Content -Encoding utf8 vercel.json
+'@
+
+[System.IO.File]::WriteAllText(
+    (Join-Path (Get-Location) "vercel.json"),
+    $json,
+    (New-Object System.Text.UTF8Encoding($false))
+)
