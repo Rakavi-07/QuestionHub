@@ -1,15 +1,9 @@
-$json = @'
-{
+﻿{
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
-'@
-
-[System.IO.File]::WriteAllText(
-    (Join-Path (Get-Location) "vercel.json"),
-    $json,
-    (New-Object System.Text.UTF8Encoding($false))
-)
